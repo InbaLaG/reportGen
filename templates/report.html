@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <meta charset="utf-8">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.6.0/d3.js"></script>
+    <script type="text/javascript">
+    window.onload = function () {
+        var chart = new CanvasJS.Chart("chartClassification",
+            {
+                title:{
+                    fonSize:20,
+                    text: "Percentage rate of malicious files that blocked in the organization"
+                },
+                subtitles:[
+                    {
+                        text: "The file #filename# is part of the selected type",
+                        fontStyle: "italic",
+                        //Uncomment properties below to see how they behave
+                        fontColor: "red",
+                        fontSize: 15
+                    }
+                ],
+                animationEnabled: true,
+                legend:{
+                    verticalAlign: "bottom",
+                    horizontalAlign: "center"
+                },
+                data: [
+                    {
+                        indexLabelFontSize: 20,
+                        indexLabelFontFamily: "Monospace",
+                        indexLabelFontColor: "darkgrey",
+                        indexLabelLineColor: "darkgrey",
+                        indexLabelPlacement: "outside",
+                        type: "pie",
+                        showInLegend: true,
+                        toolTipContent: "#percent% - <strong>{description}</strong>",
+
+                            dataPoints:
+
+                                #filePieChartData#
+
+//                        ]
+                    }
+                ]
+            });
+        chart.render();
+    }
+</script>
+    <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+    <style type="text/css">
+        body > div
+        {
+            width:483px;
+            height:298px;
+            background:#676470;
+            transition:all 0.3s ease;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even){background-color: #f2f2f2}
+
+        th {
+            background-color: rgba(52, 73, 94, 0.5);
+            color: white;
+        }
+        h2 {
+            background-color: #34495E;
+            color: white;
+            align:right
+        }
+
+        .fade
+        {
+            opacity:1;
+        }
+        .fade:hover table tr
+        {
+            opacity:0.5;
+        }
+        .color:hover
+        {
+            background:#53a7ea;
+        }
+        .divloc  {
+
+            margin: 100px 150px 100px 80px;
+        }
+        .threed:hover
+        {
+            box-shadow:
+                    1px 1px #17202A,
+                    2px 2px #17202A,
+                    3px 3px #17202A;
+            -webkit-transform: translateX(-3px);
+            transform: translateX(-3px);
+        }
+        .border:hover
+        {
+            box-shadow: inset 0 0 0 25px #53a7ea;
+        }
+
+    </style>
+</head>
+
+<title>Analysis Reoport for thr File #filename# </title>
+<center><h1>Analysis Reoport [ #filename# ]</h1></center>
+<body >
+<section>
+    <h2>General</h2>
+<center>
+<div class="divloc threed" id="generalInfo">
+    <p><h4> </h4></p>
+    <table >
+        <tr >
+            <th>General Information</th>
+            <th></th>
+        </tr>
+        <tr>
+            <td>File Name</td>
+            <td>#filename#</td>
+        </tr>
+        <tr>
+            <td>Date Created</td>
+            <td>#filedatecreated#</td>
+        </tr>
+        <tr>
+            <td>Type</td>
+            <td>#filetype#</td>
+        </tr>
+        <tr >
+            <td>Size (bytes)</td>
+            <td>#filesize#</td>
+        </tr>
+        <tr >
+            <td>Mode</td>
+            <td>#filemode#</td>
+        </tr>
+        <tr >
+            <td>MD5</td>
+            <td>#filemd5#</td>
+        </tr>
+        <tr >
+            <td>Source</td>
+            <td>#filesource#</td>
+        </tr>
+        <tr>
+            <td>Analizer</td>
+            <td>#filehostanalizer#</td>
+        </tr>
+    </table>
+
+</div>
+</center>
+</section>
+<article>
+    <h2>Where did we see this file in the world </h2>
+
+        <input type="hidden" id="filebarchartdata" name="filebarchartdata" value="#filebarchartdata#">
+        <svg width="800" height="500"></svg>
+
+        <script src="http://localhost:3001/javascripts/d3barchartscript.js"></script>
+
+</article>
+<article>
+    <h2>Classification </h2>
+
+    <div id="chartClassification" style="height: 600px; width: 100%;"></div>
+</article>
+
+<article>
+    <h2>Execution (Screenshot)</h2>
+    <div class="divloc"><p><img src="#filegiflink#" ></p></div>
+</article>
+
+</body>
+</html>

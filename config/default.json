@@ -1,0 +1,11 @@
+{
+  "server": {
+    "serverName":"localhost",
+    "port" : 3001,
+    "downloadsLocation" : "uploadedFiles",
+    "reportsLocation" : "reportsFiles"
+  },
+  "report":{
+    "barchartSize":30
+  }
+}

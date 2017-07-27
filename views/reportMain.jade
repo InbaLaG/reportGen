@@ -1,0 +1,11 @@
+extends layout
+html
+    head
+    body
+    block content
+        h1= title
+        form(action='fileupload', enctype='multipart/form-data' name="report-form", method="post")
+            div.input
+                span.label Please upload a file
+                input(type="file", name=input_title)
+                input(type="submit", value=submit_title)
